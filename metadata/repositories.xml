@@ -1,19 +1,11 @@
-<?xml version="1.0" ?>
-<layman>
-
-    <overlay
-        contact = ""
-        type = "git"
-        src  = "git://github.com/Bronsa/bronsa-overlay.git"
-        name = "bronsa-overlay">
-
-        <link>
-            https://github.com/Bronsa/bronsa-overlay
-        </link>
-
-        <description>
-            robba mia
-        </description>
-
-    </overlay>
-</layman>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+    <repo quality="experimental" status="unofficial">
+        <name>bronsa-overlay</name>
+        <description>roba mia</description>
+        <homepage>https://github.com/Bronsa/bronsa-overlay</homepage>
+        <source type="git">git://github.com/Bronsa/bronsa-overlay.git</source>
+        <source type="git">https://Bronsa@github.com/Bronsa/bronsa-overlay.git</source>
+    </repo>
+</repositories>
