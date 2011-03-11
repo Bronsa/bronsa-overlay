@@ -1,0 +1,57 @@
+--- wine-1.3.11/work/wine-1.3.11/dlls/wined3d/directx.c	2011-01-07 19:27:53.000000000 +0100
++++ wine-1.3.11/work/wine-1.3.11/dlls/wined3d/directx.c.new	2011-01-10 20:39:27.444000014 +0100
+@@ -2262,7 +2262,7 @@
+     if (gl_info->supported[ARB_MULTITEXTURE])
+     {
+         glGetIntegerv(GL_MAX_TEXTURE_UNITS_ARB, &gl_max);
+-        gl_info->limits.textures = min(MAX_TEXTURES, gl_max);
++        gl_info->limits.textures = 8;
+         TRACE_(d3d_caps)("Max textures: %d.\n", gl_info->limits.textures);
+ 
+         if (gl_info->supported[ARB_FRAGMENT_PROGRAM])
+@@ -4218,13 +4218,17 @@
+                                      WINED3DPMISCCAPS_CLIPTLVERTS           |
+                                      WINED3DPMISCCAPS_CLIPPLANESCALEDPOINTS |
+                                      WINED3DPMISCCAPS_MASKZ                 |
+-                                     WINED3DPMISCCAPS_BLENDOP               |
++                                     WINED3DPMISCCAPS_TSSARGTEMP            |
++                                     WINED3DPMISCCAPS_FOGANDSPECULARALPHA   |
++                                     WINED3DPMISCCAPS_SEPARATEALPHABLEND    |
++                                     WINED3DPMISCCAPS_BLENDOP |
++                                     WINED3DPMISCCAPS_FOGVERTEXCLAMPED |
+                                      WINED3DPMISCCAPS_MRTPOSTPIXELSHADERBLENDING;
+-                                    /* TODO:
+-                                        WINED3DPMISCCAPS_NULLREFERENCE
+-                                        WINED3DPMISCCAPS_FOGANDSPECULARALPHA
+-                                        WINED3DPMISCCAPS_MRTINDEPENDENTBITDEPTHS
+-                                        WINED3DPMISCCAPS_FOGVERTEXCLAMPED */
++    /* TODO:
++       WINED3DPMISCCAPS_NULLREFERENCE
++       WINED3DPMISCCAPS_FOGANDSPECULARALPHA
++       WINED3DPMISCCAPS_MRTINDEPENDENTBITDEPTHS
++       WINED3DPMISCCAPS_FOGVERTEXCLAMPED */
+ 
+     if (gl_info->supported[EXT_BLEND_EQUATION_SEPARATE] && gl_info->supported[EXT_BLEND_FUNC_SEPARATE])
+         pCaps->PrimitiveMiscCaps |= WINED3DPMISCCAPS_SEPARATEALPHABLEND;
+@@ -4504,7 +4508,7 @@
+     pCaps->MaxVertexBlendMatrixIndex   = 0;
+ 
+     pCaps->MaxAnisotropy = gl_info->limits.anisotropy;
+-    pCaps->MaxPointSize = gl_info->limits.pointsize_max;
++    pCaps->MaxPointSize = 64.0f;
+ 
+ 
+     /* FIXME: Add D3DVTXPCAPS_TWEENING, D3DVTXPCAPS_TEXGEN_SPHEREMAP */
+@@ -4522,7 +4526,11 @@
+ 
+     /* d3d9.dll sets D3DDEVCAPS2_CAN_STRETCHRECT_FROM_TEXTURES here because StretchRects is implemented in d3d9 */
+     pCaps->DevCaps2                          = WINED3DDEVCAPS2_STREAMOFFSET |
+-                                               WINED3DDEVCAPS2_VERTEXELEMENTSCANSHARESTREAMOFFSET;
++        WINED3DDEVCAPS2_VERTEXELEMENTSCANSHARESTREAMOFFSET |
++        WINED3DDEVCAPS2_CAN_STRETCHRECT_FROM_TEXTURES |
++        WINED3DDEVCAPS2_PRESAMPLEDDMAPNPATCH |
++        WINED3DDEVCAPS2_VERTEXELEMENTSCANSHARESTREAMOFFSET;
++
+     pCaps->MaxNpatchTessellationLevel        = 0;
+     pCaps->MasterAdapterOrdinal              = 0;
+     pCaps->AdapterOrdinalInGroup             = 0;

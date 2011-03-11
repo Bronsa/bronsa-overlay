@@ -1,0 +1,10 @@
+--- configure.ac	2010-10-05 18:41:38.813000001 +0200
++++ configure.ac.new	2010-10-13 19:41:00.084000035 +0200
+@@ -122,4 +129,5 @@
+ AC_OUTPUT(Makefile)
+ AC_OUTPUT(make-image.lisp)
+ AC_OUTPUT(version.lisp)
+-AC_OUTPUT(module.lisp)
+\ Manca newline alla fine del file
++AC_OUTPUT(module.lisp)
++AC_OUTPUT(stumpwm.texi)

@@ -1,0 +1,10 @@
+--- floating-group.lisp	2010-10-24 02:34:35.591000055 +0200
++++ floating-group.lisp.new	2010-10-24 02:36:28.834000049 +0200
+@@ -57,7 +57,7 @@
+     (setf (xlib:window-background (window-parent window))
+           (xlib:alloc-color (xlib:screen-default-colormap (screen-number (window-screen window)))
+                             (if (eq (group-current-window group) window)
+-                                "Orange"
++                                "Grey40"
+                                 "SteelBlue4")))
+     (xlib:clear-area (window-parent window))))

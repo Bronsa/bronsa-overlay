@@ -1,0 +1,32 @@
+#!/sbin/runscript
+# Copyright 1999-2004 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/mpd/files/mpd.rc,v 1.5 2009/07/25 11:10:18 ssuominen Exp $
+
+depend() {
+	need localmount
+	use net.lo netmount nfsmount esound pulseaudio
+} 
+
+checkconfig() {
+	if ! [ -f /etc/mpdasrc ]; then
+		eerror "Configuration file /etc/mpdasrc does not exist."
+		return 1
+	fi
+
+	return 0
+}
+
+start() {
+	checkconfig || return 1
+
+	ebegin "Starting mpdas"
+	start-stop-daemon --start --quiet --exec /usr/bin/mpdas -- -d 
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping mpdas"
+        start-stop-daemon --stop --exec  /usr/bin/mpdas 
+	eend $? 
+}

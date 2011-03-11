@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/armagetronad/!svn/ver/8579/armagetronad/trunk/build/gentoo/overlay/games-action/armagetronad/files
+END
+0280_fix-sysinstall.patch
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/armagetronad/!svn/ver/6432/armagetronad/trunk/build/gentoo/overlay/games-action/armagetronad/files/0280_fix-sysinstall.patch
+END
+027-startscript.sh
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/armagetronad/!svn/ver/6466/armagetronad/trunk/build/gentoo/overlay/games-action/armagetronad/files/027-startscript.sh
+END
+armagetronad-0.2.7.1-gcc4.patch
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svnroot/armagetronad/!svn/ver/6463/armagetronad/trunk/build/gentoo/overlay/games-action/armagetronad/files/armagetronad-0.2.7.1-gcc4.patch
+END
+030_fix-freetype-check.patch
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svnroot/armagetronad/!svn/ver/8410/armagetronad/trunk/build/gentoo/overlay/games-action/armagetronad/files/030_fix-freetype-check.patch
+END
+armagetronad-0.2.7.1-gcc43.patch
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/armagetronad/!svn/ver/8579/armagetronad/trunk/build/gentoo/overlay/games-action/armagetronad/files/armagetronad-0.2.7.1-gcc43.patch
+END
+armagetronad-0.2.7.1-security-1.patch
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svnroot/armagetronad/!svn/ver/6463/armagetronad/trunk/build/gentoo/overlay/games-action/armagetronad/files/armagetronad-0.2.7.1-security-1.patch
+END
+armagetronad-0.2.8.2.1-build-fixups.patch
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svnroot/armagetronad/!svn/ver/8575/armagetronad/trunk/build/gentoo/overlay/games-action/armagetronad/files/armagetronad-0.2.8.2.1-build-fixups.patch
+END
+autoconf-compat.patch
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/armagetronad/!svn/ver/8435/armagetronad/trunk/build/gentoo/overlay/games-action/armagetronad/files/autoconf-compat.patch
+END
