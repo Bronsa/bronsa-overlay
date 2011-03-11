@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<layman>
+
+    <overlay
+        contact = ""
+        type = "git"
+        src  = "git://github.com/Bronsa/bronsa-overlay.git"
+        name = "bronsa-overlay">
+
+        <link>
+            https://github.com/Bronsa/bronsa-overlay
+        </link>
+
+        <description>
+            robba mia
+        </description>
+
+    </overlay>
+</layman>
