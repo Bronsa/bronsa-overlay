@@ -1,11 +1,11 @@
---- contrib/cpu.lisp	2011-02-24 18:49:33.019000022 +0100
-+++ contrib/cpu.lisp	2011-02-24 18:54:17.874000123 +0100
-@@ -36,20 +36,8 @@
+--- contrib/cpu.lisp	2011-03-14 21:21:37.804000019 +0100
++++ contrib/cpu.lisp	2011-03-14 21:23:58.742000108 +0100
+@@ -36,20 +36,9 @@
  
  (in-package :stumpwm)
  
 -(export '(*acpi-thermal-zone*))
--
+ 
  ;; Install formatters.
 -(dolist (a '((#\c fmt-cpu-usage)
 -             (#\C fmt-cpu-usage-bar)
@@ -22,7 +22,7 @@
  
  (defvar *prev-user-cpu* 0)
  (defvar *prev-sys-cpu* 0)
-@@ -98,15 +86,7 @@
+@@ -98,15 +87,7 @@
    "Returns a string representing current the percent of average CPU
    utilization."
    (declare (ignore ml))
@@ -39,7 +39,7 @@
  
  (defun get-proc-file-field (fname field)
    (with-open-file (s fname :if-does-not-exist nil) ;
-@@ -116,36 +96,3 @@
+@@ -116,42 +97,3 @@
            (let ((split (cl-ppcre:split "\\s*:\\s*" line)))
              (when (string= (car split) field) (return (cadr split)))))
          "")))
@@ -55,7 +55,13 @@
 -
 -(defvar *acpi-thermal-zone*
 -  (let ((proc-dir (list-directory #P"/proc/acpi/thermal_zone/"))
--        (sys-dir (list-directory #P"/sys/class/thermal/")))
+-        (sys-dir (sort
+-                  (remove-if-not
+-                   (lambda (x)
+-                     (when (cl-ppcre:scan "^.*/thermal_zone\\d+/" (namestring x))
+-                       x))
+-                   (list-directory #P"/sys/class/thermal/"))
+-                  #'string< :key #'namestring)))
 -    (cond
 -      (proc-dir
 -       (cons :procfs
@@ -63,7 +69,7 @@
 -                            :name "temperature")))
 -      (sys-dir
 -       (cons :sysfs
--             (make-pathname :directory (pathname-directory (car (last sys-dir)))
+-             (make-pathname :directory (pathname-directory (first sys-dir))
 -                            :name "temp"))))))
 -
 -(defun fmt-cpu-temp (ml)
